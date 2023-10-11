@@ -1,0 +1,53 @@
+﻿<Page x:Class="CommunicationCompany.Pages.SpecialistPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CommunicationCompany.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SpecialistPage" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="2">
+            <Button Click="LogOut" HorizontalAlignment="Center" VerticalAlignment="Center">LogOut</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" FontSize="26">Approving requests</TextBlock>
+
+            <TextBlock>Requests</TextBlock>
+            <ComboBox x:Name="cmbRequests" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding User.Surname}"/>
+                            <TextBlock Text="{Binding User.Name}"/>
+                            <TextBlock Text="{Binding User.Patronymic}"/>
+                            <TextBlock Text="{Binding Tariff.Title}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock>Login</TextBlock>
+            <TextBox x:Name="tbLogin" Height="30" Margin="5"></TextBox>
+
+            <TextBlock>Password</TextBlock>
+            <TextBox x:Name="tbPassword" Height="30" Margin="5"></TextBox>
+
+            <Button Height="30" Click="ApproveRequest" Margin="5">Approve request</Button>
+        </StackPanel>
+    </Grid>
+</Page>
